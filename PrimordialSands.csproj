@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Xact">
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
+    </Reference>
+
+          <Reference Include="Microsoft.Xna.Framework.Game">
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
+      </Reference>
+      
+    <Reference Include="Terraria">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
+    </Reference>
+
+        <Reference Include="Microsoft.Xna.Framework">
+      <HintPath>..\..\..\..\..\..\Downloads\Microsoft.Xna.Framework.dll</HintPath>
+      </Reference>
+
+    <Reference Include="Microsoft.Xna.Framework.Graphics">
+      <HintPath>..\..\..\..\..\..\Downloads\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+      </Reference>
+
+    <Reference Include="TerrariaHooks">
+      <HintPath>..\..\..\..\..\..\Downloads\TerrariaHooks.FNA.dll</HintPath>
+    </Reference>
+
+  </ItemGroup>
+
+</Project>
