@@ -10,12 +10,12 @@ using Terraria.DataStructures;
 
 namespace PrimordialSands.Items.Accessories.Rings
 {
-    public class AnkhRingTopaz : ModItem
+    public class AnkhRingAmber : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Topaz Ankh Ring");
-            Tooltip.SetDefault("Increases absorption damage by 5%");
+            DisplayName.SetDefault("Amber Ankh Ring");
+            Tooltip.SetDefault("Increases maximum minions by 1");
         }
 
         public override void SetDefaults()
@@ -29,13 +29,13 @@ namespace PrimordialSands.Items.Accessories.Rings
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<AbsorptionPlayer>().absorptionDamage += 0.05f;
+            player.maxMinions += 1; 
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Topaz, 5);
+            recipe.AddIngredient(ItemID.Amber, 5);
             recipe.AddIngredient(ItemID.Wood, 10);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
