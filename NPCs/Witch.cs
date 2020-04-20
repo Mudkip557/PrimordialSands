@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -255,12 +256,9 @@ namespace PrimordialSands.NPCs
         {
             if (Main.rand.Next(15) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VitalFlask"));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("WitchGlove"));
             }
-            if (Main.rand.Next(15) == 0)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PutridFlask"));
-            }
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("WitchFlaskAmmo"), Main.rand.Next(4, 8));
         }
         public override void HitEffect(int hitDirection, double damage)
         {
