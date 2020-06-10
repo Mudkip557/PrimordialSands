@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using PrimordialSands.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
 
 namespace PrimordialSands.Items.Weapons.Indenwood
 {
@@ -21,20 +21,20 @@ namespace PrimordialSands.Items.Weapons.Indenwood
         {
             item.damage = 15;
             item.crit = 4;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.width = 46;
             item.height = 46;
             item.useAnimation = 25;
             item.useTime = 25;
-            item.useStyle = 5;
+            item.useStyle = ItemUseStyleID.HoldingOut;
             item.knockBack = 3f;
-            item.mana = 4;
+            item.mana = 5;
             item.magic = true;
             item.noMelee = true;
             item.autoReuse = true;
-            item.value = Terraria.Item.buyPrice(0, 0, 70, 0);
+            item.value = Item.buyPrice(0, 0, 8, 35);
             item.UseSound = SoundID.Item8;
-            item.shoot = mod.ProjectileType("FloodBlastProjectile");
+            item.shoot = ProjectileType<FloodBlastProjectile>();
             item.shootSpeed = 8f;
         }
 

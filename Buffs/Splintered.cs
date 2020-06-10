@@ -24,12 +24,12 @@ namespace PrimordialSands.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<PrimordialSandsPlayer>(mod).splintered = true;
+			player.GetModPlayer<PrimordialSandsPlayer>().splintered = true;
 		}
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			npc.GetGlobalNPC<_GlobalNPC>(mod).splintered = true;
+			npc.GetGlobalNPC<_GlobalNPC>().splintered = true;
 		}
 	}
 }

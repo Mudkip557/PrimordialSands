@@ -24,12 +24,12 @@ namespace PrimordialSands.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<PrimordialSandsPlayer>(mod).plague = true;
+			player.GetModPlayer<PrimordialSandsPlayer>().plague = true;
 		}
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			npc.GetGlobalNPC<_GlobalNPC>(mod).plague = true;
+			npc.GetGlobalNPC<_GlobalNPC>().plague = true;
 		}
 	}
 }

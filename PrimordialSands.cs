@@ -13,7 +13,6 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using PrimordialSands.Shaders;
 
 
 namespace PrimordialSands
@@ -25,13 +24,7 @@ namespace PrimordialSands
         public static ModHotKey ArtifactToggleHotKey;
         public PrimordialSands()
         {
-            Properties = new ModProperties()
-            {
-                Autoload = true,
-                AutoloadSounds = true,
-                AutoloadGores = true,
-                AutoloadBackgrounds = true
-            };
+
         }
         public override void Load()
         {
@@ -55,7 +48,7 @@ namespace PrimordialSands
             {
                 if (Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>().ZoneSwamp)
                 {
-                    music = GetSoundSlot(SoundType.Music, "Sounds/Music/SwampTheme");
+                    music = GetSoundSlot(SoundType.Music, "Sounds/Music/The_Jungles_Den");
                     priority = MusicPriority.BiomeHigh;
                 }
             }

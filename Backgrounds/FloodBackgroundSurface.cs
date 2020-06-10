@@ -7,7 +7,7 @@ namespace PrimordialSands.Backgrounds
 	{
 		public override bool ChooseBgStyle()
 		{
-			return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>(mod).ZoneSwamp;
+			return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>().ZoneSwamp;
 		}
 
 		public override void ModifyFarFades(float[] fades, float transitionSpeed)

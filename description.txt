@@ -3,21 +3,13 @@ Primordial Sands takes on a step into the works of Mythology.
 progression variates through mythological points in time and refreshes the game's content frequently.
 This is a massive content mod that drastically changes Terraria and limits it to mythological times.
 
-[c/f97b42:Summary]
-[i/s1:184] 50+ New items
-[i/s1:184] 15+ New tiles
-[i/s1:184] 5+ New buffs
-[i/s1:184] 3+ New biomes/structures
 
 [c/ecc52b:Developer Team]
-[i/s1:3613] Sig - Lead Developer/Programming/Lore
-[i/s1:3613] TerrorPenguin - Leading Sprite Artist
-[i/s1:3613] Nvar504- Sprite Artist
-[i/s1:3613] Snake - Sprite Artist
+[i/s1:3613] Sig - Programmer/Musician/Writer
+[i/s1:3613] Henyx - Musician/Writer
 
 [c/f97b42:Special Thanks/Contributors]
-[i/s1:184] Dan Yami - Code Contribution
-[i/s1:184] Frous - Sprite Artist
-[i/s1:184] ArmyFrog - Sprite Artist
-[i/s1:184] [c/00d2ff:Turquoise] Musician/Composer
-[i/s1:184] Sig - Osiris's Theme/Track
+[i/s1:184] TerrorPenguin - Old Lead Sprite Artist
+[i/s1:184] Nvar504 - Sprite Artist
+[i/s1:184] Skeletony - Sprite Artist
+[i/s1:184] [c/00d2ff:Turquoise] Engulfed Isle Theme

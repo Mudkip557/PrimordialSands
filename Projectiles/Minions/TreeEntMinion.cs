@@ -56,7 +56,7 @@ namespace PrimordialSands.Projectiles.Minions
             Player player = Main.player[projectile.owner];
             bool minionCheck = projectile.type == mod.ProjectileType("TreeEntMinion");
             player.AddBuff(mod.BuffType("TreeEntMinionBuff"), 3600);
-            PrimordialSandsPlayer modPlayer = player.GetModPlayer<PrimordialSandsPlayer>(mod);
+            PrimordialSandsPlayer modPlayer = player.GetModPlayer<PrimordialSandsPlayer>();
             if (minionCheck)
             {
                 if (player.dead)

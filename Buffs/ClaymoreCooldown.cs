@@ -22,7 +22,7 @@ namespace PrimordialSands.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<PrimordialSandsPlayer>(mod).claymoreCooldown = true;
+			player.GetModPlayer<PrimordialSandsPlayer>().claymoreCooldown = true;
 		}
 	}
 }

@@ -13,7 +13,6 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using PrimordialSands.Shaders;
 
 namespace PrimordialSands
 {
@@ -56,13 +55,13 @@ namespace PrimordialSands
 
         public override bool CustomBiomesMatch(Player other)
         {
-            PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>(mod);
+            PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>();
             return ZoneSwamp == modOther.ZoneSwamp;
         }
 
         public override void CopyCustomBiomesTo(Player other)
         {
-            PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>(mod);
+            PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>();
             modOther.ZoneSwamp = ZoneSwamp;
         }
 

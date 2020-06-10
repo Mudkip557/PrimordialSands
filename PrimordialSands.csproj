@@ -1,34 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\references\tModLoader.targets" />
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PrimordialSands</AssemblyName>
+    <TargetFramework>net45</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
-
+  <Target Name="BuildMod" AfterTargets="Build">
+    <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define $(DefineConstants) -unsafe $(AllowUnsafeBlocks)" />
+  </Target>
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework.Xact">
-      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
-    </Reference>
-
-          <Reference Include="Microsoft.Xna.Framework.Game">
-      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
-      </Reference>
-      
-    <Reference Include="Terraria">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
-    </Reference>
-
-        <Reference Include="Microsoft.Xna.Framework">
-      <HintPath>..\..\..\..\..\..\Downloads\Microsoft.Xna.Framework.dll</HintPath>
-      </Reference>
-
-    <Reference Include="Microsoft.Xna.Framework.Graphics">
-      <HintPath>..\..\..\..\..\..\Downloads\Microsoft.Xna.Framework.Graphics.dll</HintPath>
-      </Reference>
-
-    <Reference Include="TerrariaHooks">
-      <HintPath>..\..\..\..\..\..\Downloads\TerrariaHooks.FNA.dll</HintPath>
-    </Reference>
-
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Reference Update="Terraria">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\tModLoader\tModLoader.exe</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

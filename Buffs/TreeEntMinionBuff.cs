@@ -22,7 +22,7 @@ namespace PrimordialSands.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            PrimordialSandsPlayer modPlayer = player.GetModPlayer<PrimordialSandsPlayer>(mod);
+            PrimordialSandsPlayer modPlayer = player.GetModPlayer<PrimordialSandsPlayer>();
             if (player.ownedProjectileCounts[mod.ProjectileType("TreeEntMinion")] > 0)
             {
                 modPlayer.treeEnt = true;

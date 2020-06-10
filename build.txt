@@ -1,4 +1,4 @@
-author = Mudkip557
+author = InSignia
 version = 0.0.1
 displayName = Primordial Sands
 homepage = https://forums.terraria.org/index.php?threads/primordial-sands.72168/

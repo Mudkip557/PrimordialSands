@@ -12,12 +12,12 @@ namespace PrimordialSands.Tiles
     {
         public override bool Drop(int i, int j, int type)
         {
-            var modPlayer = Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>(mod);
+            var modPlayer = Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>();
             Player player = Main.LocalPlayer;
             #region Indenwood Pickaxe
             if (player.HeldItem.type == mod.ItemType("IndenwoodPickaxe"))
             {
-                if (Main.rand.Next(4) == (0))
+                if (Main.rand.Next(3) == (0))
                 {
                     if (type == TileID.Copper)
                     {
