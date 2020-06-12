@@ -1,4 +1,5 @@
 using System;
+using IL.Terraria.GameContent.Shaders;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -36,7 +37,7 @@ namespace PrimordialSands.Shaders
             {
                 float intensity = this.GetIntensity();
 
-                Texture2D texture2D = Main.rainTexture;
+                Texture2D texture2D = Main.wraithEyeTexture;     
                 Microsoft.Xna.Framework.Rectangle rectangle6 = texture2D.Frame(1, 1, 0, 0);
 
                 spriteBatch.Draw(texture2D, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Green * intensity);

@@ -5,7 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
+using PrimordialSands.Dusts;
 
 namespace PrimordialSands.Projectiles
 {
@@ -21,16 +23,11 @@ namespace PrimordialSands.Projectiles
             projectile.width = 28;
             projectile.height = 28;
             projectile.penetrate = 1;
-            projectile.aiStyle = 92;
+            projectile.aiStyle = 1;
             projectile.timeLeft = 240;
             projectile.ranged = true;
-            projectile.hostile = true;
+            projectile.friendly = true;
             projectile.tileCollide = true;
-        }
-        public override void Kill(int timeLeft)
-        {
-            Main.PlaySound(0, projectile.position);
-            Dust.NewDust(projectile.Center, 0, 0, 89, 0f, 0f, 100, default(Color), 1f);
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

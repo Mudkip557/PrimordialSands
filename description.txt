@@ -9,6 +9,7 @@ This is a massive content mod that drastically changes Terraria and limits it to
 [i/s1:3613] Henyx - Musician/Writer
 
 [c/f97b42:Special Thanks/Contributors]
+[i/s1:184] ZETRYJEN (https://soundcloud.com/zetryjen)
 [i/s1:184] TerrorPenguin - Old Lead Sprite Artist
 [i/s1:184] Nvar504 - Sprite Artist
 [i/s1:184] Skeletony - Sprite Artist

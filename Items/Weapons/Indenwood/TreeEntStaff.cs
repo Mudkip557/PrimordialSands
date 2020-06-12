@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
+using PrimordialSands.Projectiles.Minions;
+using static Terraria.ModLoader.ModContent;
 
 namespace PrimordialSands.Items.Weapons.Indenwood
 {
@@ -15,24 +12,34 @@ namespace PrimordialSands.Items.Weapons.Indenwood
         {
             DisplayName.SetDefault("Tree Ent Staff");
             Tooltip.SetDefault("Summons a cute tree ent to fight for you");
+            ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true;
+            ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
         }
         public override void SetDefaults()
         {
             item.damage = 8;
             item.crit = 4;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.width = 42;
             item.height = 48;
             item.useAnimation = 25;
             item.useTime = 25;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.knockBack = 3f;
             item.mana = 8;
             item.summon = true;
             item.noMelee = true;
             item.value = Terraria.Item.buyPrice(0, 0, 80, 0);
             item.UseSound = SoundID.Item83;
-            item.shoot = mod.ProjectileType("TreeEntMinion");
+            if (Main.rand.Next(2) == (0))
+            {
+                item.shoot = ProjectileType<TreeEntMinion>();
+            }
+            else
+            {
+                item.shoot = ProjectileType<TreeEntMinion_Alt>();
+            }
+
             item.shootSpeed = 8f;
         }
 

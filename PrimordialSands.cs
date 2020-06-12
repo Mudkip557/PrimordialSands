@@ -13,7 +13,7 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using PrimordialSands.Shaders;
 
 namespace PrimordialSands
 {
@@ -33,7 +33,8 @@ namespace PrimordialSands
 
             if (!Main.dedServ)
             {
-
+                Filters.Scene["PrimordialSands:TestShader"] = new Filter(new ScreenShaderData("FilterSandstorm"), EffectPriority.Medium);
+                SkyManager.Instance["PrimordialSands:TestShader"] = new TestShader();
             }
         }
         public override void Unload()
