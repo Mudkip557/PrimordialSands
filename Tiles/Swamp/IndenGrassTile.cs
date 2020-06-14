@@ -25,7 +25,7 @@ namespace PrimordialSands.Tiles.Swamp
             TileID.Sets.ChecksForMerge[Type] = true;
             dustType = mod.DustType("IndendirtDust");
             minPick = 0;
-            soundType = 6;
+            soundType = SoundID.Grass;
             soundStyle = 6;
             //Main.tileMoss[Type] = true;
             //Main.tileMerge[Type][TileID.Dirt] = true;

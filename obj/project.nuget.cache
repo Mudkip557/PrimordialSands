@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dUZLSEdoX11ovZG6sMyqH92Jm4Hy9qeSrnYDWM/K6l+u8y3NWK/jIFRapz4xf0uX4hnYNadJ+L/R9Ut4ra6/Vg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cobal\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\PrimordialSands\\PrimordialSands.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cobal\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

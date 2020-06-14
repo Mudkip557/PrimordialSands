@@ -5,7 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
+using PrimordialSands.Traps;
 
 namespace PrimordialSands.Items
 {
@@ -29,7 +30,7 @@ namespace PrimordialSands.Items
             item.autoReuse = true;
             item.consumable = true;
             item.value = Terraria.Item.buyPrice(0, 0, 0, 0);
-            item.createTile = mod.TileType("IndenwoodPlankTile");
+            item.createTile = TileType<Quicksand>();
         }
 
         public override void AddRecipes()

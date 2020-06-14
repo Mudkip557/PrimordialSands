@@ -33,8 +33,7 @@ namespace PrimordialSands
 
             if (!Main.dedServ)
             {
-                Filters.Scene["PrimordialSands:TestShader"] = new Filter(new ScreenShaderData("FilterSandstorm"), EffectPriority.Medium);
-                SkyManager.Instance["PrimordialSands:TestShader"] = new TestShader();
+
             }
         }
         public override void Unload()

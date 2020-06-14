@@ -89,8 +89,7 @@ namespace PrimordialSands
 
         public override void UpdateBiomeVisuals()
         {
-            //bool useTestShader = Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>().ZoneSwamp;
-            //player.ManageSpecialBiomeVisuals("PrimoridalSands:TestShader", useTestShader, player.Center);
+
         }
 
         public override void UpdateBadLifeRegen()
