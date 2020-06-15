@@ -50,7 +50,7 @@ namespace PrimordialSands
 
         public override void UpdateBiomes()
         {
-            ZoneSwamp = (PrimordialSandsWorld.swampTiles > 200);
+            //ZoneSwamp = (EngulfedIsle.swampTiles > 2100);
         }
 
         public override bool CustomBiomesMatch(Player other)

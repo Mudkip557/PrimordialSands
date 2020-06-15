@@ -5,12 +5,15 @@ This is a massive content mod that drastically changes Terraria and limits it to
 
 
 [c/ecc52b:Developer Team]
-[i/s1:3613] Sig - Programmer/Musician/Writer
-[i/s1:3613] Henyx - Musician/Writer
+[i/s1:3613] Signia - Programmer/Musician/Writer
+[i/s1:3613] KipperSkipper - Programmer/Musician/Writer
+[i/s1:3613] TerrorPenguin - Artist
+[i/s1:3613] 52amos - Artist
 
 [c/f97b42:Special Thanks/Contributors]
 [i/s1:184] ZETRYJEN (https://soundcloud.com/zetryjen)
-[i/s1:184] TerrorPenguin - Old Lead Sprite Artist
 [i/s1:184] Nvar504 - Sprite Artist
+[i/s1:184] It's Squid - Sprite Artist
+[i/s1:184] Renk Sanchez - Programmer
 [i/s1:184] Skeletony - Sprite Artist
 [i/s1:184] [c/00d2ff:Turquoise] Engulfed Isle Theme

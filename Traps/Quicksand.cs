@@ -36,7 +36,7 @@ namespace PrimordialSands.Traps
                 {
                     int Index = Dust.NewDust(new Vector2(i * 16, j * 16), 16, 16, 32, 0f, 0f, 0, (default), 1f);
                     Dust dust = Main.dust[Index];
-                    Main.dust[Index].alpha = 180;
+                    Main.dust[Index].alpha = 125;
                     Main.dust[Index].noGravity = true;
                     dust.velocity *= 1.6f;
                 }

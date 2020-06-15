@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.World.Generation;
 using Terraria.GameContent.Generation;
+using static Terraria.ModLoader.ModContent;
 
 using Terraria.UI;
 using Terraria.DataStructures;
@@ -18,12 +19,13 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using PrimordialSands.Items.Placeables;
+using PrimordialSands.Tiles.Swamp;
 
 namespace PrimordialSands
 {
     public class PrimordialSandsWorld : ModWorld
     {
-        public static int swampTiles = 0;
         public static bool OrcsAcquisitionUp = false;
         public static bool downedOrcsAcquisition = false;
 
@@ -592,14 +594,5 @@ namespace PrimordialSands
         }
         #endregion
 
-        public override void ResetNearbyTileEffects()
-        {
-            swampTiles = 0;
-        }
-
-        public override void TileCountsAvailable(int[] tileCounts)
-        {
-            swampTiles = tileCounts[mod.TileType("IndenSoilTile")];
-        }
     }
 }
