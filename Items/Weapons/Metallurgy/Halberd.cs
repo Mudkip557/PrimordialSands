@@ -20,12 +20,12 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
         {
             item.damage = 13;
             item.crit = 4;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.width = 52;
             item.height = 52;
             item.useAnimation = 22;
             item.useTime = 22;
-            item.useStyle = 5;
+            item.useStyle = ItemUseStyleID.HoldingOut;
             item.knockBack = 4.5f;
             item.melee = true;
             item.noMelee = true;
@@ -107,12 +107,12 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
                 vector2.X += num82 * 3f;
                 vector2.Y += num83 * 3f;
             }
-            if (item.useStyle == 5)
+            if (item.useStyle == ItemUseStyleID.HoldingOut)
             {
 
                 player.itemRotation = (float)Math.Atan2((double)(num83 * (float)player.direction), (double)(num82 * (float)player.direction)) - player.fullRotation;
-                NetMessage.SendData(13, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
-                NetMessage.SendData(41, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.ItemAnimation, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
 
             }
             if (num75 == 17)
@@ -148,7 +148,7 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
                     num85 = 1f;
                 }
                 Main.projectile[num89].ai[0] = num85;
-                NetMessage.SendData(27, -1, -1, null, num89, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, num89, 0f, 0f, 0f, 0, 0, 0);
             }
             float ai4 = Main.rand.NextFloat() * num76 * 0.75f * (float)player.direction;
             Vector2 velocity = new Vector2(num82, num83);

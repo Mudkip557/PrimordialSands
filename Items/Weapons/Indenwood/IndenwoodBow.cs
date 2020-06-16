@@ -20,12 +20,12 @@ namespace PrimordialSands.Items.Weapons.Indenwood
         {
             item.damage = 12;
             item.crit = 4;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.width = 26;
             item.height = 48;
             item.useAnimation = 28;
             item.useTime = 28;
-            item.useStyle = 5;
+            item.useStyle = ItemUseStyleID.HoldingOut;
             item.knockBack = 2.75f;
             item.ranged = true;
             item.noMelee = true;

@@ -21,12 +21,12 @@ namespace PrimordialSands.Items.Weapons
         {
             item.damage = 24;
             item.crit = 4;
-            item.rare = 3;
+            item.rare = ItemRarityID.Orange;
             item.width = 28;
             item.height = 32;
             item.useAnimation = 25;
             item.useTime = 25;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.knockBack = 1f;
             item.mana = 8;
             item.summon = true;

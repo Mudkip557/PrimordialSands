@@ -32,7 +32,7 @@ namespace PrimordialSands.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+            Main.PlaySound(SoundID.Dig, (int)projectile.position.X, (int)projectile.position.Y);
             int num3;
             int num570 = 6;
             for (int num571 = 0; num571 < num570; num571 = num3 + 1)

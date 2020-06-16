@@ -61,7 +61,7 @@ namespace PrimordialSands.NPCs
                     npc.direction = 1;
                 }
                 npc.rotation = npc.velocity.X * 0.1f;
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     npc.localAI[3] += 1f;
                     if (npc.localAI[3] > (float)Main.rand.Next(50, 195))

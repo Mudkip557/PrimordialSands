@@ -20,12 +20,12 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
         {
             item.damage = 20;
             item.crit = 4;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.width = 62;
             item.height = 62;
             item.useAnimation = 32;
             item.useTime = 32;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.knockBack = 5.5f;
             item.melee = true;
             item.autoReuse = true;

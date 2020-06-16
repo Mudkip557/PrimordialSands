@@ -24,12 +24,12 @@ namespace PrimordialSands.Items.Weapons.Absorption
         {
             item.damage = 15;
             item.crit = 7;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.width = 44;
             item.height = 48;
             item.useAnimation = 28;
             item.useTime = 28;
-            item.useStyle = 5;
+            item.useStyle = ItemUseStyleID.HoldingOut;
             item.knockBack = 0f;
             item.mana = 16;
             item.noMelee = true;

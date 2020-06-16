@@ -7,7 +7,7 @@ using PrimordialSands.Projectiles;
 
 namespace PrimordialSands.Items.Weapons
 {
-    public class PrimordialSands : ModItem
+    public class MyeclialMasher : ModItem
     {
         public override void SetStaticDefaults()
         {

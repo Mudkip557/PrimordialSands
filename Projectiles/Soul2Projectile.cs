@@ -31,7 +31,7 @@ namespace PrimordialSands.Projectiles
         }
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+            Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 14);
             for (int num621 = 0; num621 < 6; num621++)
             {
                 int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 263, 0f, 0f, 100, default(Color), 2.2f);
@@ -54,7 +54,6 @@ namespace PrimordialSands.Projectiles
             }
         }
         int ai1 = 0;
-        int ai2 = 0;
         public override void AI()
         {
             int num414 = (int)(projectile.Center.X);

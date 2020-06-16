@@ -23,7 +23,7 @@ namespace PrimordialSands.Items.Accessories.Misc
             item.width = 34;
             item.height = 42;
             item.value = Terraria.Item.buyPrice(0, 10, 0, 0);
-            item.rare = 5;
+            item.rare = ItemRarityID.Pink;
             item.accessory = true;
             item.defense = 2;
         }

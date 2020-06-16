@@ -38,7 +38,7 @@ namespace PrimordialSands.Projectiles
         }
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(13, projectile.position);
+            Main.PlaySound(SoundID.Shatter, projectile.position);
             int num13;
             for (int num186 = 0; num186 < 20; num186 = num13 + 1)
             {

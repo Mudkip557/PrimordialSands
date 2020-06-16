@@ -25,7 +25,7 @@ namespace PrimordialSands.NPCs.Osiris
             npc.width = 24; //324
             npc.height = 22; //216
             npc.defense = 10;
-            npc.lifeMax = 5000;
+            npc.lifeMax = 1000;
             npc.aiStyle = -1; //new
             aiType = -1; //new
             npc.knockBackResist = 0f;
@@ -37,7 +37,7 @@ namespace PrimordialSands.NPCs.Osiris
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = (int)(npc.lifeMax * 2f * bossLifeScale);
+            npc.lifeMax = (int)(npc.lifeMax * 1.5f * bossLifeScale);
             npc.damage = 140;
             npc.defense = 40;
         }
@@ -58,8 +58,8 @@ namespace PrimordialSands.NPCs.Osiris
                 float num600 = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector79.X;
                 float num601 = Main.player[npc.target].position.Y + (float)(Main.player[npc.target].height / 2) - 300f - vector79.Y;
                 float num602 = (float)Math.Sqrt((double)(num600 * num600 + num601 * num601));
-                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 93);
-                if (Main.netMode != 1)
+                Main.PlaySound(SoundID.Item, (int)npc.position.X, (int)npc.position.Y, 93);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float num603 = 12f;
                     if (Main.expertMode)

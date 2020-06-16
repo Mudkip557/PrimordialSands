@@ -22,7 +22,7 @@ namespace PrimordialSands.Tiles.Swamp
             dustType = 54;
             mineResist = 0.65f;
             minPick = 55;
-            soundType = 21;
+            soundType = SoundID.Tink;
             soundStyle = 2;
             drop = mod.ItemType("Indenstone");
             ModTranslation name = CreateMapEntryName();

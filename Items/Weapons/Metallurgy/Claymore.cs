@@ -22,12 +22,12 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
         {
             item.damage = 14;
             item.crit = 4;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.width = 48;
             item.height = 48;
             item.useAnimation = 24;
             item.useTime = 24;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.knockBack = 3.5f;
             item.melee = true;
             item.useTurn = true;
@@ -50,7 +50,7 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
                     item.useAnimation = 100;
                     item.useTime = 100;
                     item.damage = 100;
-                    item.useStyle = 5;
+                    item.useStyle = ItemUseStyleID.HoldingOut;
                     float dash = 10f;
                     if (player.direction == 1)
                     {
@@ -72,7 +72,7 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
                 }
                 else
                 {
-                    item.useStyle = 1;
+                    item.useStyle = ItemUseStyleID.SwingThrow;
                     item.damage = 14;
                     item.useAnimation = 24;
                     item.useTime = 24;

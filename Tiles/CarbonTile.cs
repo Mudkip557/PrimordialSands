@@ -20,7 +20,7 @@ namespace PrimordialSands.Tiles
             dustType = 54;
             mineResist = 0.65f;
             minPick = 50;
-            soundType = 21;
+            soundType = SoundID.Tink;
             soundStyle = 2;
             drop = mod.ItemType("Carbon");
             ModTranslation name = CreateMapEntryName();

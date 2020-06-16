@@ -23,7 +23,7 @@ namespace PrimordialSands.Items.Armors
             item.height = 24;
             item.width = 32;
             item.value = Terraria.Item.buyPrice(0, 0, 30, 0);
-            item.rare = 3;
+            item.rare = ItemRarityID.Orange;
             item.defense = 2;
 		}
 

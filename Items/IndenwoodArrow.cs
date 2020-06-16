@@ -20,7 +20,7 @@ namespace PrimordialSands.Items
 		public override void SetDefaults()
 		{
 			item.damage = 5;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.width = 14;
 			item.height = 32;
 			item.maxStack = 999;

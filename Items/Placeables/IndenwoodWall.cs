@@ -25,7 +25,7 @@ namespace PrimordialSands.Items.Placeables
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 7;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.consumable = true;
 			item.createWall = mod.WallType("IndenwoodWallTile");
 		}

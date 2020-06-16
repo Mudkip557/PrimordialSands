@@ -23,7 +23,7 @@ namespace PrimordialSands.Items.Accessories.Boots
         {
             item.height = 22;
             item.width = 22;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.accessory = true;
             item.value = Terraria.Item.buyPrice(0, 2, 50, 0);
         }

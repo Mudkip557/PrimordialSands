@@ -25,6 +25,7 @@ namespace PrimordialSands
         public bool plague = false;
         public bool splintered = false;
         public bool treeEnt = false;
+        public bool elderberryBuff = false;
         public bool infernoSummoned = false;
         public bool reaperRosario = false;
         public bool ZoneSwamp = false;
@@ -36,6 +37,7 @@ namespace PrimordialSands
             plague = false;
             splintered = false;
             treeEnt = false;
+            elderberryBuff = false;
             reaperRosario = false;
         }
         public override void UpdateDead()
@@ -45,6 +47,7 @@ namespace PrimordialSands
             plague = false;
             splintered = false;
             treeEnt = false;
+            elderberryBuff = false;
             reaperRosario = false;
         }
 
@@ -119,6 +122,10 @@ namespace PrimordialSands
                     player.lifeRegen = 0;
                 }
                 player.statDefense /= 4;
+            }
+            if (elderberryBuff)
+            {
+                player.statLifeMax2 += 35;
             }
         }
 

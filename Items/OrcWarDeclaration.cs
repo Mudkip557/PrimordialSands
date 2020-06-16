@@ -18,13 +18,13 @@ namespace PrimordialSands.Items
         }
         public override void SetDefaults()
         {
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.maxStack = 999;
             item.width = 34;
             item.height = 44;
             item.useAnimation = 20;
             item.useTime = 20;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.useTurn = true;
             item.autoReuse = true;
             item.consumable = true;

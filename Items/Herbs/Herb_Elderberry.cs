@@ -5,7 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
+using PrimordialSands.Buffs;
 
 namespace PrimordialSands.Items.Herbs
 {
@@ -25,12 +27,15 @@ namespace PrimordialSands.Items.Herbs
             item.consumable = true;
             item.useTime = 20;
             item.useAnimation = 20;
+            item.buffTime = 600;
+            item.buffType = BuffType<Elderberry>();
             item.useStyle = ItemUseStyleID.EatingUsing;
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Food_Berries");
             item.value = Terraria.Item.buyPrice(0, 1, 0, 0);
         }
         public override void OnConsumeItem(Player player)
         {
-            CombatText.NewText(player.Hitbox, new Color(123, 56, 224), "50+ Max life +10s");
+            CombatText.NewText(player.Hitbox, new Color(123, 56, 224), "35+ Max life +10s");
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

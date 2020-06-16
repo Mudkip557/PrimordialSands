@@ -22,12 +22,12 @@ namespace PrimordialSands.Items.Weapons
         {
             item.damage = 24;
             item.crit = 8;
-            item.rare = 3;
+            item.rare = ItemRarityID.Orange;
             item.width = 48;
             item.height = 58;
             item.useAnimation = 38;
             item.useTime = 45;
-            item.useStyle = 5;
+            item.useStyle = ItemUseStyleID.HoldingOut;
             item.knockBack = 1.75f;
             item.mana = 18;
             item.magic = true;
@@ -46,12 +46,12 @@ namespace PrimordialSands.Items.Weapons
         {
             if (player.altFunctionUse == 2)
             {
-                item.useStyle = 5;
+                item.useStyle = ItemUseStyleID.HoldingOut;
                 Item.staff[item.type] = true;
             }
             else
             {
-                item.useStyle = 5;
+                item.useStyle = ItemUseStyleID.HoldingOut;
                 Item.staff[item.type] = true;
             }
             return base.CanUseItem(player);

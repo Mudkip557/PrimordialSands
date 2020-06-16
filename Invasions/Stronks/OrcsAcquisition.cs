@@ -70,12 +70,12 @@ namespace PrimordialSands
 			{
 				text = "An Orcin army has been defeated!";
 			}
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(text, 175, 75, 255, false);
 				return;
 			}
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendData(25, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f, 0, 0, 0);
 			}

@@ -20,12 +20,12 @@ namespace PrimordialSands.Items.Weapons.Steel
         {
             item.damage = 12;
             item.crit = 4;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.width = 40;
             item.height = 40;
             item.useAnimation = 23;
             item.useTime = 23;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.axe = 9;
             item.knockBack = 4.5f;
             item.melee = true;

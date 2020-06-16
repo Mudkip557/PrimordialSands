@@ -46,7 +46,7 @@ namespace PrimordialSands.Projectiles
         }
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(0, projectile.position);
+            Main.PlaySound(SoundID.Dig, projectile.position);
             Dust.NewDust(projectile.Center, 0, 0, 89, 0f, 0f, 100, default(Color), 1f);
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

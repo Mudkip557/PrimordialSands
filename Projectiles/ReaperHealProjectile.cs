@@ -106,7 +106,7 @@ namespace PrimordialSands.Projectiles
                     Main.player[num492].HealEffect(num497, false);
                     Player player = Main.player[num492];
                     player.statLife += num497;
-                    NetMessage.SendData(66, -1, -1, null, num492, (float)num497, 0f, 0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, num492, (float)num497, 0f, 0f, 0, 0, 0);
                 }
                 projectile.Kill();
             }
