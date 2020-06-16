@@ -26,8 +26,11 @@ namespace PrimordialSands.Items.Herbs
             item.useTime = 20;
             item.useAnimation = 20;
             item.useStyle = ItemUseStyleID.EatingUsing;
-            item.healLife = 35;
             item.value = Terraria.Item.buyPrice(0, 1, 0, 0);
+        }
+        public override void OnConsumeItem(Player player)
+        {
+            CombatText.NewText(player.Hitbox, new Color(123, 56, 224), "50+ Max life +10s");
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

@@ -32,6 +32,10 @@ namespace PrimordialSands.Items.Herbs
             item.buffTime = 600;
             item.value = Terraria.Item.buyPrice(0, 0, 50, 0);
         }
+        public override void OnConsumeItem(Player player)
+        {
+            CombatText.NewText(player.Hitbox, new Color(251, 31, 54), "Regeneration +10s");
+        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine line = new TooltipLine(mod, "Herb_Balkan Peony", "-- Herb Item --");

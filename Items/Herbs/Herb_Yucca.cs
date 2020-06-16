@@ -14,7 +14,7 @@ namespace PrimordialSands.Items.Herbs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Yucca");
-            Tooltip.SetDefault("Perennial Plant");
+            Tooltip.SetDefault("Replenishing Plant");
         }
         public override void SetDefaults()
         {
@@ -22,10 +22,20 @@ namespace PrimordialSands.Items.Herbs
             item.maxStack = 99;
             item.width = 30;
             item.height = 30;
+            item.useTime = 20;
+            item.useAnimation = 20;
             item.consumable = true;
-            item.healLife = 25;
-            item.value = Terraria.Item.buyPrice(0, 0, 50, 0);
+            item.buffType = BuffID.Sunflower;
+            item.buffTime = 300;
+            item.useStyle = ItemUseStyleID.EatingUsing;
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Food_Berries");
+            item.value = Item.buyPrice(0, 0, 50, 0);
         }
+        public override void OnConsumeItem(Player player)
+        {
+            CombatText.NewText(player.Hitbox, new Color(125, 224, 74), "Movement Speed +5s");
+        }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine line = new TooltipLine(mod, "Herb_Yucca", "-- Herb Item --");

@@ -23,10 +23,12 @@ namespace PrimordialSands.Items.Herbs
             item.width = 30;
             item.height = 30;
             item.consumable = true;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 60;
+            item.useAnimation = 60;
+            item.buffTime = 600;
+            item.buffType = BuffID.Stinky;
             item.useStyle = ItemUseStyleID.EatingUsing;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Food_Crunchy");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Food_HeavyCrunch");
             item.healLife = 10;
             item.value = Terraria.Item.buyPrice(0, 0, 0, 35);
         }
@@ -36,6 +38,10 @@ namespace PrimordialSands.Items.Herbs
 
             line.overrideColor = new Color(106, 190, 48);
             tooltips.Add(line);
+        }
+        public override void OnConsumeItem(Player player)
+        {
+            CombatText.NewText(player.Hitbox, new Color(66, 130, 60), "Odor +10s");
         }
     }
 }

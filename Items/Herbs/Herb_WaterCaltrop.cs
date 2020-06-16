@@ -22,9 +22,14 @@ namespace PrimordialSands.Items.Herbs
             item.maxStack = 99;
             item.width = 30;
             item.height = 30;
+            item.useTime = 20;
+            item.useAnimation = 20;
+            item.buffTime = 600;
             item.consumable = true;
-            item.healMana = 15;
-            item.value = Terraria.Item.buyPrice(0, 0, 33, 0);
+            item.useStyle = ItemUseStyleID.EatingUsing;
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Food_Berries");
+            item.buffType = BuffID.Gills;
+            item.value = Item.buyPrice(0, 0, 33, 0);
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -32,6 +37,10 @@ namespace PrimordialSands.Items.Herbs
 
             line.overrideColor = new Color(106, 190, 48);
             tooltips.Add(line);
+        }
+        public override void OnConsumeItem(Player player)
+        {
+            CombatText.NewText(player.Hitbox, new Color(30, 44, 165), "Waterbreathing +10s");
         }
     }
 }
