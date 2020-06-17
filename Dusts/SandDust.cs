@@ -1,14 +1,11 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using PrimordialSands.Dusts;
+using Microsoft.Xna.Framework;
 
 namespace PrimordialSands.Dusts
 {
-    public class GasDust : ModDust
+    public class SandDust : ModDust
     {
         public override void OnSpawn(Dust dust)
         {
@@ -16,9 +13,9 @@ namespace PrimordialSands.Dusts
             dust.velocity.Y *= 0.5f;
             dust.noGravity = true;
             dust.noLight = true;
-            dust.scale *= 0.2f;
+            dust.scale *= 0.3f;
             dust.frame = new Rectangle((Main.rand.Next(0, 1) == 0) ? 0 : 250, 0, 250, 115);
-            dust.alpha = 1;
+            dust.alpha = 210;
         }
 
         public override bool Update(Dust dust)

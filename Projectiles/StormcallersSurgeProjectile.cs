@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using PrimordialSands.Buffs;
+using System.Threading;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -22,13 +23,13 @@ namespace PrimordialSands.Projectiles
             projectile.height = 16;
             projectile.alpha = 100;
             projectile.penetrate = -1;
-            projectile.timeLeft = 90;
-            projectile.extraUpdates = 18;
+            projectile.timeLeft = 80;
+            projectile.extraUpdates = 1;
 
             projectile.friendly = true;
             projectile.magic = true;
         }
-        int radians = 8;
+        int radians = 4;
         public override void AI()
         {
             int num3;
@@ -65,71 +66,11 @@ namespace PrimordialSands.Projectiles
                 projectile.velocity.X = perturbedSpeed.X;
                 projectile.ai[0] = 0;
             }
-            if (projectile.localAI[0] >= 40)
-            {
-                int num13 = 0;
-                int num20 = 72;
-                for (int i = 0; i < num20; i++)
-                {
-                    Vector2 vector2 = Vector2.Normalize(projectile.velocity) * new Vector2((float)projectile.width / 2f, (float)projectile.height) * 0.75f * 0.5f;
-                    vector2 = vector2.RotatedBy((double)((float)(i - (num20 / 2 - 1)) * 2f / (float)num20), default(Vector2)) + projectile.Center;
-                    Vector2 vector3 = vector2 - projectile.oldPosition;
-                }
-                int num229 = 4;
-                int[] array = new int[num229];
-                int num230 = 0;
-                if (num230 > 1)
-                {
-                    for (int num232 = 0; num232 < 100; num232 = num13 + 1)
-                    {
-                        int num233 = Main.rand.Next(num230);
-                        int num234;
-                        for (num234 = num233; num234 == num233; num234 = Main.rand.Next(num230))
-                        {
-                        }
-                        int num235 = array[num233];
-                        array[num233] = array[num234];
-                        array[num234] = num235;
-                        num13 = num232;
-                    }
-                }
-                Vector2 vector10 = new Vector2(-1f, -1f);
-                for (int num236 = 0; num236 < num230; num236 = num13 + 1)
-                {
-                    Vector2 value9 = Main.npc[array[num236]].Center - projectile.Center;
-                    value9.Normalize();
-                    vector10 += value9;
-                    num13 = num236;
-                }
-                vector10.Normalize();
-                for (int num237 = 0; num237 < num229; num237 = num13 + 1)
-                {
-                    float scaleFactor = (float)Main.rand.Next(1, 3);
-                    Vector2 vector11 = new Vector2((float)Main.rand.Next(-100, 101), (float)Main.rand.Next(-100, 101));
-                    vector11.Normalize();
-                    if (num230 > 0)
-                    {
-                        vector11 += vector10;
-                        vector11.Normalize();
-                    }
-                    vector11 *= scaleFactor;
-                    if (num230 > 0)
-                    {
-                        num13 = num230;
-                        num13 = num13 - 1;
-                        vector11 = Main.npc[array[num230]].Center - projectile.Center;
-                        vector11.Normalize();
-                        vector11 *= scaleFactor;
-                    }
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector11.X, vector11.Y, mod.ProjectileType("StormcallersSurge_1Projectile"), (int)((double)projectile.damage * 0.7), projectile.knockBack * 0.7f, projectile.owner, 0f, 0f);
-                    num13 = num237;
-                    projectile.localAI[0] = 0;
-                }
-            }
         }
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(SoundID.Item66, projectile.position);
+            Projectile.NewProjectile(projectile.position, projectile.velocity * 2, ProjectileType<StormcallersSurge_1Projectile>(), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
             int num3;
             int num570 = 6;
             for (int num571 = 0; num571 < num570; num571 = num3 + 1)
@@ -141,7 +82,7 @@ namespace PrimordialSands.Projectiles
                 dust56.velocity.Y = dust56.velocity.Y - 1f;
                 dust = Main.dust[num572];
                 dust.velocity += -projectile.velocity * (Main.rand.NextFloat() * 2f - 1f) * 0.5f;
-                Main.dust[num572].scale = 1.5f;
+                Main.dust[num572].scale = 5.5f;
                 Main.dust[num572].fadeIn = 0.5f;
                 Main.dust[num572].noGravity = true;
                 num3 = num571;

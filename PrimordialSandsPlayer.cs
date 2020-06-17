@@ -13,6 +13,8 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Terraria.ModLoader.ModContent;
+using PrimordialSands.Dusts;
 
 namespace PrimordialSands
 {
@@ -20,40 +22,61 @@ namespace PrimordialSands
     {
         private const int saveVersion = 0;
         public static bool hasProjectile;
+        public bool ankhAmber = false;
+        public bool ankhAmeythst = false;
+        public bool ankhDiamond = false;
+        public bool ankhEmerald = false;
+        public bool ankhSapphire = false;
+        public bool ankhTopaz = false;
+
         public bool claymoreCooldown = false;
+        public bool elderberryBuff = false;
         public bool flood = false;
+        public bool infernoSummoned = false;
         public bool plague = false;
+        public bool reaperRosario = false;
         public bool splintered = false;
         public bool treeEnt = false;
-        public bool elderberryBuff = false;
-        public bool infernoSummoned = false;
-        public bool reaperRosario = false;
         public bool ZoneSwamp = false;
 
         public override void ResetEffects()
         {
+            ankhAmber = false;
+            ankhAmeythst = false;
+            ankhDiamond = false;
+            ankhEmerald = false;
+            ankhSapphire = false;
+            ankhTopaz = false;
+
             claymoreCooldown = false;
+            elderberryBuff = false;
             flood = false;
             plague = false;
+            reaperRosario = false;
             splintered = false;
             treeEnt = false;
-            elderberryBuff = false;
-            reaperRosario = false;
         }
         public override void UpdateDead()
         {
+            ankhAmber = false;
+            ankhAmeythst = false;
+            ankhDiamond = false;
+            ankhEmerald = false;
+            ankhSapphire = false;
+            ankhTopaz = false;
+
             claymoreCooldown = false;
+            elderberryBuff = false;
             flood = false;
             plague = false;
+            reaperRosario = false;
             splintered = false;
             treeEnt = false;
-            elderberryBuff = false;
-            reaperRosario = false;
         }
 
         public override void UpdateBiomes()
         {
-            //ZoneSwamp = (EngulfedIsle.swampTiles > 2100);
+            //ZoneSwamp = (EngulfedIsle.swampTiles > 100);
         }
 
         public override bool CustomBiomesMatch(Player other)
@@ -89,10 +112,42 @@ namespace PrimordialSands
             }
             return null;
         }
+        private void DrawMist()
+        {
+            for (int k = (int)Math.Floor(player.position.X / 16) - 55; k < (int)Math.Floor(player.position.X / 16) + 55; k++)
+            {
+                for (int i = (int)Math.Floor(player.position.Y / 16) - 30; i < (int)Math.Floor(player.position.Y / 16) + 30; i++)
+                {
+                    if ((!Main.tile[k, i - 1].active() //These tell the dust not to spawn on the specific tiles
+                        && !Main.tile[k, i - 2].active()
+                        && Main.tile[k, i].active()
+                        && Main.tile[k, i].type != TileID.Cactus)
+                        || (Main.tile[k, i - 1].type == TileID.Cactus
+                        && Main.tile[k, i].type == TileID.Sand)) //Sand is the only tile that it should spawn on, but we'll settle
+                    {
+                        if (Main.rand.Next(0, 95) == 2)
+                        {
+                            Dust.NewDust(new Vector2((k - 2) * 16, (i - 1) * 16), 5, 5, DustType<SandDust>());
+                        }
+                    }
+                
+                    if (Main.tile[k, i].type == TileID.Cactus 
+                        && !Main.tile[k, i - 1].active() 
+                        && !Main.tile[k - 1, i].active() 
+                        && !Main.tile[k + 1, i].active())
+                    {
+                        Lighting.AddLight(new Vector2(k * 16, i * 16), new Vector3(1, 1, 1));
+                    }
+                }
+            }
+        }
 
         public override void UpdateBiomeVisuals()
         {
-
+            if (Main.LocalPlayer.ZoneDesert)
+            {
+                DrawMist();
+            }
         }
 
         public override void UpdateBadLifeRegen()
@@ -128,8 +183,6 @@ namespace PrimordialSands
                 player.statLifeMax2 += 35;
             }
         }
-
-
         public override void DrawEffects(PlayerDrawInfo drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
         {
             if (flood)

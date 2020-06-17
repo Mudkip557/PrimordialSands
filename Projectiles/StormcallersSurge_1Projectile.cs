@@ -22,13 +22,13 @@ namespace PrimordialSands.Projectiles
             projectile.height = 16;
             projectile.alpha = 100;
             projectile.penetrate = -1;
-            projectile.timeLeft = 90;
-            projectile.extraUpdates = 18;
+            projectile.timeLeft = 100;
+            projectile.extraUpdates = 40;
 
             projectile.friendly = true;
             projectile.magic = true;
         }
-        int radians = 8;
+        int radians = 6;
         public override void AI()
         {
             int num3;
@@ -45,6 +45,7 @@ namespace PrimordialSands.Projectiles
                 Main.dust[num23].scale = 0.5f;
                 num3 = num20;
             }
+
 
             projectile.ai[0] += 1;
             if (projectile.ai[0] >= 8)
@@ -64,6 +65,11 @@ namespace PrimordialSands.Projectiles
                 projectile.velocity.X = perturbedSpeed.X;
                 projectile.ai[0] = 0;
             }
+
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.immune[projectile.owner] = 5;
         }
         public override void Kill(int timeLeft)
         {
@@ -79,7 +85,7 @@ namespace PrimordialSands.Projectiles
                 dust56.velocity.Y = dust56.velocity.Y - 1f;
                 dust = Main.dust[num572];
                 dust.velocity += -projectile.velocity * (Main.rand.NextFloat() * 2f - 1f) * 0.5f;
-                Main.dust[num572].scale = 1.5f;
+                Main.dust[num572].scale = 5.5f;
                 Main.dust[num572].fadeIn = 0.5f;
                 Main.dust[num572].noGravity = true;
                 num3 = num571;

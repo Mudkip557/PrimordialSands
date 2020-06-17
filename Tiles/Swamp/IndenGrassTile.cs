@@ -7,6 +7,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
+using static Terraria.ModLoader.ModContent;
+using PrimordialSands.Dusts;
 
 namespace PrimordialSands.Tiles.Swamp
 {

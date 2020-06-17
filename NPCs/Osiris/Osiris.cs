@@ -36,7 +36,7 @@ namespace PrimordialSands.NPCs.Osiris
             npc.HitSound = SoundID.NPCHit34;
             npc.DeathSound = SoundID.NPCDeath20;
             npc.value = Terraria.Item.buyPrice(0, 15, 0, 0);
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/OneThousandDeadlyStares");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Assimilation");
             bossBag = mod.ItemType("OsirisBag");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)

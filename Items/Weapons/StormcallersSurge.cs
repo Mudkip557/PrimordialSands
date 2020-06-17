@@ -11,7 +11,7 @@ namespace PrimordialSands.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stormcaller's Surge");
+            DisplayName.SetDefault("zappy's shovel");
             Tooltip.SetDefault("");
         }
         public override void SetDefaults()

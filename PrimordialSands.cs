@@ -33,7 +33,7 @@ namespace PrimordialSands
 
             if (!Main.dedServ)
             {
-
+                AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/Catacombs_Lvl2"), ItemType("CatacombsMusicBox"), TileType("CatacombsMusicBox"));
             }
         }
         public override void Unload()
