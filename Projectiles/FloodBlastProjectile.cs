@@ -25,6 +25,7 @@ namespace PrimordialSands.Projectiles
             projectile.penetrate = 1;
             projectile.timeLeft = 120;
             projectile.magic = true;
+            projectile.scale = 0.83f;
             projectile.friendly = true;
             projectile.tileCollide = true;
             projectile.ignoreWater = true;
@@ -123,6 +124,7 @@ namespace PrimordialSands.Projectiles
                 Main.dust[num572].fadeIn = 0.5f;
                 Main.dust[num572].noGravity = true;
                 num3 = num571;
+                int watermelon = Projectile.NewProjectile(projectile.Center, projectile.velocity, ProjectileID.PurificationPowder, 0, 0, projectile.owner, 0, 0);
             }
         }
     }

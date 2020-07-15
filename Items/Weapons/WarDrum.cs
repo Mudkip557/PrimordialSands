@@ -13,29 +13,28 @@ namespace PrimordialSands.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spirit War Drum");
-            Tooltip.SetDefault("Summons a spirit animal to fight for you"
-                + "\nSpirit animals vary depending on the moon phase");
+            DisplayName.SetDefault("War Drum");
+            Tooltip.SetDefault("Releases a loud barrier of sound waves deafening and weakening enemies");
         }
         public override void SetDefaults()
         {
-            item.damage = 24;
+            item.damage = 20;
             item.crit = 4;
-            item.rare = ItemRarityID.Orange;
+            item.rare = ItemRarityID.Green;
             item.width = 28;
             item.height = 32;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.knockBack = 1f;
-            item.mana = 8;
+            item.useAnimation = 45;
+            item.useTime = 45;
+            item.useStyle = ItemUseStyleID.Stabbing;
+            item.knockBack = 8f;
+            item.mana = 20;
             item.summon = true;
             item.noMelee = true;
             item.autoReuse = true;
             item.value = Terraria.Item.buyPrice(0, 1, 0, 0);
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/WarDrum");
-            item.shoot = mod.ProjectileType("SpiritAnimalSpawnProjectile");
-            item.shootSpeed = 10f;
+            item.shoot = mod.ProjectileType("WarDrumProjectile");
+            item.shootSpeed = 0f;
         }
     }
 }

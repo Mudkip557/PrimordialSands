@@ -30,12 +30,12 @@ namespace PrimordialSands.Items.Accessories
             {
                 player.magicDamage += 0.05f;
             }
+
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine line = new TooltipLine(mod, "AnkhRingAmethyst", "Boosts magic damage when worn with an Amethyst Robe");
-
             line.overrideColor = new Color(106, 255, 48);
             tooltips.Add(line);
         }

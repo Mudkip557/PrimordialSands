@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
 
 namespace PrimordialSands.Items.Weapons.Indenwood
 {
@@ -21,8 +22,6 @@ namespace PrimordialSands.Items.Weapons.Indenwood
             item.damage = 16;
             item.crit = 4;
             item.rare = ItemRarityID.Blue;
-            item.width = 36;
-            item.height = 44;
             item.useAnimation = 25;
             item.useTime = 25;
             item.useStyle = ItemUseStyleID.SwingThrow;
@@ -33,6 +32,15 @@ namespace PrimordialSands.Items.Weapons.Indenwood
             item.value = Terraria.Item.buyPrice(0, 0, 75, 0);
             item.UseSound = SoundID.Item1;
         }
+        /*public override void OnCraft(Recipe recipe)
+        {
+            Player player = Main.LocalPlayer;
+            if (!PrimordialSandsPlayer.downedVajra)
+            {
+                CombatText.NewText(player.Hitbox, new Color(0, 160, 100), "Vajra's spirit curses this item!");
+                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/SFX/CurseSound"), player.Center);
+            }
+        }*/
 
         public override void AddRecipes()
         {

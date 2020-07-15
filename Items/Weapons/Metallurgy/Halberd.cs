@@ -33,7 +33,7 @@ namespace PrimordialSands.Items.Weapons.Metallurgy
             item.useTurn = false;
             item.autoReuse = true;
             item.channel = true;
-            item.shootSpeed = 25f;
+            item.shootSpeed = 15f;
             item.value = Terraria.Item.buyPrice(0, 1, 50, 0);
             item.UseSound = SoundID.Item1;
             item.shoot = mod.ProjectileType("HalberdProjectile");

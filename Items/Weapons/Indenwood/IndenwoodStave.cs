@@ -22,8 +22,8 @@ namespace PrimordialSands.Items.Weapons.Indenwood
             item.damage = 15;
             item.crit = 4;
             item.rare = ItemRarityID.Blue;
-            item.width = 46;
-            item.height = 46;
+            item.width = 41;
+            item.height = 42;
             item.useAnimation = 25;
             item.useTime = 25;
             item.useStyle = ItemUseStyleID.HoldingOut;
@@ -35,7 +35,7 @@ namespace PrimordialSands.Items.Weapons.Indenwood
             item.value = Item.buyPrice(0, 0, 8, 35);
             item.UseSound = SoundID.Item8;
             item.shoot = ProjectileType<FloodBlastProjectile>();
-            item.shootSpeed = 8f;
+            item.shootSpeed = 6.5f;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

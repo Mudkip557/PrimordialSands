@@ -21,8 +21,8 @@ namespace PrimordialSands.Items.Weapons.Indenwood
             item.damage = 12;
             item.crit = 4;
             item.rare = ItemRarityID.Blue;
-            item.width = 26;
-            item.height = 48;
+            item.width = 20;
+            item.height = 38;
             item.useAnimation = 28;
             item.useTime = 28;
             item.useStyle = ItemUseStyleID.HoldingOut;

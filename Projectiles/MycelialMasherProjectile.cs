@@ -19,8 +19,8 @@ namespace PrimordialSands.Projectiles
         public override void SetDefaults()
         {
             projectile.friendly = true;
-            projectile.width = 86;
-            projectile.height = 86;
+            projectile.width = 88;
+            projectile.height = 88;
 			projectile.melee = true;
 			projectile.penetrate = -1;
 			projectile.alpha = 255;

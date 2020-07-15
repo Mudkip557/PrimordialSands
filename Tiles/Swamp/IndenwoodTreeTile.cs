@@ -24,7 +24,6 @@ namespace PrimordialSands.Tiles.Swamp
 		{
 			return mod.DustType("IndenwoodDust");
 		}
-
 		public override int GrowthFXGore()
 		{
 			return mod.GetGoreSlot("Gores/IndenwoodTreeFX");

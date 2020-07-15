@@ -17,7 +17,6 @@ namespace PrimordialSands
 		public float absorptionDamage = 1f;
 		public float absorptionKnockback = 0f;
 		public int absorptionCrit = 0;
-
 		public override void ResetEffects()
 		{
 			ResetVariables();

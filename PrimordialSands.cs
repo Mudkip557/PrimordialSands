@@ -13,7 +13,8 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using PrimordialSands.Shaders;
+using static Terraria.ModLoader.ModContent;
+using IL.Terraria.GameContent.Achievements;
 
 namespace PrimordialSands
 {
@@ -33,6 +34,10 @@ namespace PrimordialSands
 
             if (!Main.dedServ)
             {
+                Ref<Effect> screenRef = new Ref<Effect>(GetEffect("Effects/Shockwave"));
+                Filters.Scene["PrimordialSands:Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
+                Filters.Scene["PrimordialSands:Shockwave"].Load();
+
                 AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/Catacombs_Lvl2"), ItemType("CatacombsMusicBox"), TileType("CatacombsMusicBox"));
             }
         }
@@ -58,5 +63,6 @@ namespace PrimordialSands
                 priority = MusicPriority.BiomeLow;
             }
         }
+
     }
 }

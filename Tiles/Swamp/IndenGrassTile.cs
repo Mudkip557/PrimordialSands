@@ -16,8 +16,6 @@ namespace PrimordialSands.Tiles.Swamp
     {
         public override void SetDefaults()
         {
-            //AddToArray(ref TileID.Sets.Conversion.Grass);
-            //TileID.Sets.Conversion.Grass[Type] = true;
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             TileID.Sets.Grass[Type] = true;
@@ -29,9 +27,8 @@ namespace PrimordialSands.Tiles.Swamp
             minPick = 0;
             soundType = SoundID.Grass;
             soundStyle = 6;
-            //Main.tileMoss[Type] = true;
-            //Main.tileMerge[Type][TileID.Dirt] = true;
-
+            Main.tileBlockLight[Type] = true;
+            Main.tileLighted[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = mod.TileType("IndenSoilTile");
             Main.tileMerge[Type][mod.TileType("IndenstoneTile")] = true;
@@ -39,7 +36,10 @@ namespace PrimordialSands.Tiles.Swamp
         }
         public override void RandomUpdate(int i, int j)
         {
-            WorldGen.SpreadGrass(i, j, mod.TileType("IndenSoilTile"), mod.TileType("IndenGrassTile"), true, Main.tile[i, j].color());
+            if (Main.rand.NextBool(10))
+            {
+                WorldGen.SpreadGrass(i, j, mod.TileType("IndenSoilTile"), mod.TileType("IndenGrassTile"), true, Main.tile[i, j].color());
+            }
         }
         #region Extras
         public override void ChangeWaterfallStyle(ref int style)

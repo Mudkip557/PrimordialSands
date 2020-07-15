@@ -15,6 +15,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Terraria.ModLoader.ModContent;
 using PrimordialSands.Dusts;
+using IL.Terraria.GameContent.Events;
+using On.Terraria.GameContent.Skies;
+using PrimordialSands.Items.Farming.Spades;
+using Terraria.ModLoader.IO;
 
 namespace PrimordialSands
 {
@@ -28,17 +32,27 @@ namespace PrimordialSands
         public bool ankhEmerald = false;
         public bool ankhSapphire = false;
         public bool ankhTopaz = false;
-
+        public bool harvestEnchant = false;
         public bool claymoreCooldown = false;
         public bool elderberryBuff = false;
         public bool flood = false;
         public bool infernoSummoned = false;
+        public bool isSpade = false;
         public bool plague = false;
         public bool reaperRosario = false;
+        public bool screenShake = false;
+        public bool screenShakeLight = false;
+        public bool signiasPet = false;
         public bool splintered = false;
         public bool treeEnt = false;
         public bool ZoneSwamp = false;
 
+        public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+        {
+            Item item = new Item();
+            item.SetDefaults(ItemType<CopperSpade>());
+            items.Add(item);
+        }
         public override void ResetEffects()
         {
             ankhAmber = false;
@@ -47,12 +61,15 @@ namespace PrimordialSands
             ankhEmerald = false;
             ankhSapphire = false;
             ankhTopaz = false;
-
+            isSpade = false;
             claymoreCooldown = false;
             elderberryBuff = false;
             flood = false;
             plague = false;
             reaperRosario = false;
+            screenShake = false;
+            screenShakeLight = false;
+            signiasPet = false;
             splintered = false;
             treeEnt = false;
         }
@@ -64,27 +81,40 @@ namespace PrimordialSands
             ankhEmerald = false;
             ankhSapphire = false;
             ankhTopaz = false;
-
+            isSpade = false;
             claymoreCooldown = false;
             elderberryBuff = false;
             flood = false;
             plague = false;
             reaperRosario = false;
+            screenShake = false;
+            screenShakeLight = false;
+            signiasPet = false;
             splintered = false;
             treeEnt = false;
         }
-
+        public override void ModifyScreenPosition()
+        {
+            if (screenShake) //Thanks, Hallam :)
+            {
+                Main.screenPosition.X += Main.rand.Next(-10, 11);
+                Main.screenPosition.Y += Main.rand.Next(-10, 11);
+            }
+            if (screenShakeLight)
+            {
+                Main.screenPosition.X += Main.rand.Next(-5, 6);
+                Main.screenPosition.Y += Main.rand.Next(-5, 6);
+            }
+        }
         public override void UpdateBiomes()
         {
             //ZoneSwamp = (EngulfedIsle.swampTiles > 100);
         }
-
         public override bool CustomBiomesMatch(Player other)
         {
             PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>();
             return ZoneSwamp == modOther.ZoneSwamp;
         }
-
         public override void CopyCustomBiomesTo(Player other)
         {
             PrimordialSandsPlayer modOther = other.GetModPlayer<PrimordialSandsPlayer>();
@@ -112,44 +142,104 @@ namespace PrimordialSands
             }
             return null;
         }
-        private void DrawMist()
-        {
-            for (int k = (int)Math.Floor(player.position.X / 16) - 55; k < (int)Math.Floor(player.position.X / 16) + 55; k++)
-            {
-                for (int i = (int)Math.Floor(player.position.Y / 16) - 30; i < (int)Math.Floor(player.position.Y / 16) + 30; i++)
-                {
-                    if ((!Main.tile[k, i - 1].active() //These tell the dust not to spawn on the specific tiles
-                        && !Main.tile[k, i - 2].active()
-                        && Main.tile[k, i].active()
-                        && Main.tile[k, i].type != TileID.Cactus)
-                        || (Main.tile[k, i - 1].type == TileID.Cactus
-                        && Main.tile[k, i].type == TileID.Sand)) //Sand is the only tile that it should spawn on, but we'll settle
-                    {
-                        if (Main.rand.Next(0, 95) == 2)
-                        {
-                            Dust.NewDust(new Vector2((k - 2) * 16, (i - 1) * 16), 5, 5, DustType<SandDust>());
-                        }
-                    }
-                
-                    if (Main.tile[k, i].type == TileID.Cactus 
-                        && !Main.tile[k, i - 1].active() 
-                        && !Main.tile[k - 1, i].active() 
-                        && !Main.tile[k + 1, i].active())
-                    {
-                        Lighting.AddLight(new Vector2(k * 16, i * 16), new Vector3(1, 1, 1));
-                    }
-                }
-            }
-        }
 
         public override void UpdateBiomeVisuals()
         {
             if (Main.LocalPlayer.ZoneDesert)
             {
-                DrawMist();
+                DrawSand();
             }
         }
-
+        private void DrawSand()
+        {
+            for (int k = (int)Math.Floor(player.position.X / 16) - 55; k < (int)Math.Floor(player.position.X / 16) + 55; k++)
+            {
+                for (int i = (int)Math.Floor(player.position.Y / 16) - 30; i < (int)Math.Floor(player.position.Y / 16) + 30; i++)
+                {
+                    if (!Main.tile[k, i - 1].active()
+                        && !Main.tile[k, i - 2].active()
+                        && Main.tile[k, i].active()
+                        && Main.tile[k, i].type == TileID.Sand
+                        && Main.tile[k, i].type == TileID.Sand) //Sand is the only tile that it should spawn on, but we'll settle
+                    {
+                        if (Main.rand.Next(0, 95) == 2)
+                        {
+                            int Index = Dust.NewDust(new Vector2((k - 2) * 16, (i - 1) * 16), 5, 5, DustType<SandDust>());
+                            if (player.ZoneSandstorm)
+                            {
+                                Main.dust[Index].velocity.Y += 0.09f;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int k2 = (int)Math.Floor(player.position.X / 16) - 55; k2 < (int)Math.Floor(player.position.X / 16) + 55; k2++)
+            {
+                for (int i2 = (int)Math.Floor(player.position.Y / 16) - 30; i2 < (int)Math.Floor(player.position.Y / 16) + 30; i2++)
+                {
+                    if (!Main.tile[k2, i2 - 1].active()
+                    && !Main.tile[k2, i2 - 2].active()
+                    && Main.tile[k2, i2].active()
+                    && Main.tile[k2, i2].type == TileID.Ebonsand
+                    && Main.tile[k2, i2].type == TileID.Ebonsand) //Sand is the only tile that it should spawn on, but we'll settle
+                    {
+                        if (Main.rand.Next(0, 95) == 2)
+                        {
+                            int Index = Dust.NewDust(new Vector2((k2 - 2) * 16, (i2 - 1) * 16), 5, 5, DustType<SandDust>());
+                            Main.dust[Index].color = new Color(222, 77, 222);
+                            if (player.ZoneSandstorm)
+                            {
+                                Main.dust[Index].velocity.Y += 0.09f;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int k3 = (int)Math.Floor(player.position.X / 16) - 55; k3 < (int)Math.Floor(player.position.X / 16) + 55; k3++)
+            {
+                for (int i3 = (int)Math.Floor(player.position.Y / 16) - 30; i3 < (int)Math.Floor(player.position.Y / 16) + 30; i3++)
+                {
+                    if (!Main.tile[k3, i3 - 1].active()
+                    && !Main.tile[k3, i3 - 2].active()
+                    && Main.tile[k3, i3].active()
+                    && Main.tile[k3, i3].type == TileID.Crimsand
+                    && Main.tile[k3, i3].type == TileID.Crimsand) //Sand is the only tile that it should spawn on, but we'll settle
+                    {
+                        if (Main.rand.Next(0, 95) == 2)
+                        {
+                            int Index = Dust.NewDust(new Vector2((k3 - 2) * 16, (i3 - 1) * 16), 5, 5, DustType<SandDust>());
+                            Main.dust[Index].color = new Color(222, 55, 85);
+                            if (player.ZoneSandstorm)
+                            {
+                                Main.dust[Index].velocity.Y += 0.09f;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int k4 = (int)Math.Floor(player.position.X / 16) - 55; k4 < (int)Math.Floor(player.position.X / 16) + 55; k4++)
+            {
+                for (int i4 = (int)Math.Floor(player.position.Y / 16) - 30; i4 < (int)Math.Floor(player.position.Y / 16) + 30; i4++)
+                {
+                    if (!Main.tile[k4, i4 - 1].active()
+                    && !Main.tile[k4, i4 - 2].active()
+                    && Main.tile[k4, i4].active()
+                    && Main.tile[k4, i4].type == TileID.Pearlsand
+                    && Main.tile[k4, i4].type == TileID.Pearlsand) //Sand is the only tile that it should spawn on, but we'll settle
+                    {
+                        if (Main.rand.Next(0, 95) == 2)
+                        {
+                            int Index = Dust.NewDust(new Vector2((k4 - 2) * 16, (i4 - 1) * 16), 5, 5, DustType<SandDust>());
+                            Main.dust[Index].color = new Color(160, 114, 250);
+                            if (player.ZoneSandstorm)
+                            {
+                                Main.dust[Index].velocity.Y += 0.09f;
+                            }
+                        }
+                    }
+                }
+            }
+        } //Sand Haze
         public override void UpdateBadLifeRegen()
         {
             if (flood)

@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
 
 namespace PrimordialSands.Projectiles
 {
@@ -90,7 +91,7 @@ namespace PrimordialSands.Projectiles
             {
                 for (int num350 = 0; num350 < 8; num350 = num3 + 1)
                 {
-                    int projectileIndex = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, Main.rand.Next(mod.ProjectileType("PoisonGas1Projectile"), mod.ProjectileType("PoisonGas2Projectile")), projectile.damage / 3, 0f, projectile.owner, 0f, 0f);
+                    int projectileIndex = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, ProjectileType<PoisonGas1Projectile>(), projectile.damage / 3, 0f, projectile.owner, 0f, 0f);
                     num3 = num350;
                 }
             }

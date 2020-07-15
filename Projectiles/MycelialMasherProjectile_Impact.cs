@@ -9,17 +9,17 @@ using Terraria.ID;
 
 namespace PrimordialSands.Projectiles
 {
-    public class MycelialMasherProjectile_Impact : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Mycelial Warhammer");
-        }
-        public override void SetDefaults()
-        {
-            projectile.friendly = true;
-            projectile.width = 46;
-            projectile.height = 170;
+	public class MycelialMasherProjectile_Impact : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mycelial Warhammer");
+		}
+		public override void SetDefaults()
+		{
+			projectile.friendly = true;
+			projectile.width = 46;
+			projectile.height = 170;
 			projectile.melee = true;
 			projectile.penetrate = -1;
 			projectile.alpha = 255;
@@ -31,9 +31,30 @@ namespace PrimordialSands.Projectiles
 			projectile.ownerHitCheck = true;
 
 		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			Point point = projectile.TopLeft.ToTileCoordinates();
+			Point point2 = projectile.BottomRight.ToTileCoordinates();
+			int num2 = 4;
+			int width = projectile.width;
+			for (int i = point.X; i <= point2.X; i++)
+			{
+				for (int j = point.Y; j <= point2.Y; j++)
+				{
+					if (Vector2.Distance(projectile.Bottom, new Vector2((float)(i * 16), (float)(j * 16))) <= (float)width)
+					{
+						for (int l = 0; l < num2 - 1; l++)
+						{
+							Dust.NewDust(target.Center, 0, 0, 4, 0, 0, 0, target.color, 1.5f);
+						}
+					}
+				}
+			}
+		}
 
 		public override void AI()
 		{
+			Main.LocalPlayer.GetModPlayer<PrimordialSandsPlayer>().screenShake = true;
 			Point point = projectile.TopLeft.ToTileCoordinates();
 			Point point2 = projectile.BottomRight.ToTileCoordinates();
 			int arg_20_0 = point.X / 2;
@@ -132,5 +153,6 @@ namespace PrimordialSands.Projectiles
 				}
 			}
 		}
+		
 	}
 }

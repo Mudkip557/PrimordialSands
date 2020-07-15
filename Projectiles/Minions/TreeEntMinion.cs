@@ -17,6 +17,7 @@ namespace PrimordialSands.Projectiles.Minions
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+			Main.projFrames[projectile.type] = 6;
 			DisplayName.SetDefault("Tree Ent");
 		}
 

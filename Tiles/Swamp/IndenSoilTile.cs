@@ -18,6 +18,8 @@ namespace PrimordialSands.Tiles.Swamp
             Main.tileMergeDirt[Type] = true;
             Main.tileMerge[Type][mod.TileType("IndenGrassTile")] = true;
             Main.tileMerge[Type][mod.TileType("IndenstoneTile")] = true;
+            Main.tileBlockLight[Type] = true;
+            Main.tileLighted[Type] = true;
             dustType = mod.DustType("IndendirtDust");
             drop = mod.ItemType("Indendirt");
             mineResist = 1.25f;

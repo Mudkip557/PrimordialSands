@@ -26,6 +26,7 @@ namespace PrimordialSands
 {
     public class PrimordialSandsWorld : ModWorld
     {
+        public static bool playerCraftedWoodSpade = false;
         public static bool OrcsAcquisitionUp = false;
         public static bool downedOrcsAcquisition = false;
 
@@ -34,12 +35,13 @@ namespace PrimordialSands
             Main.invasionSize = 0;
             OrcsAcquisitionUp = false;
             downedOrcsAcquisition = false;
+            playerCraftedWoodSpade = false;
         }
         public override TagCompound Save()
         {
             var downed = new List<string>();
             if (downedOrcsAcquisition) downed.Add("orcsAcquisition");
-
+            if (playerCraftedWoodSpade) downed.Add("CraftedWoodSpade");
             return new TagCompound {
                 {"downed", downed}
             };
@@ -49,12 +51,14 @@ namespace PrimordialSands
         {
             var downed = tag.GetList<string>("downed");
             downedOrcsAcquisition = downed.Contains("orcsAcquisition");
+            playerCraftedWoodSpade = downed.Contains("CraftedWoodSpade");
         }
 
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
             flags[0] = downedOrcsAcquisition;
+            flags[1] = playerCraftedWoodSpade;
             writer.Write(flags);
         }
 
@@ -62,6 +66,7 @@ namespace PrimordialSands
         {
             BitsByte flags = reader.ReadByte();
             downedOrcsAcquisition = flags[0];
+            playerCraftedWoodSpade = flags[1];
         }
 
         public override void PostUpdate()
@@ -103,7 +108,7 @@ namespace PrimordialSands
             {
                 int x = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int y = WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY);
-                WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), mod.TileType("CarbonTile"), false, 0f, 0f, false, true);
+                WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(5, 11), WorldGen.genRand.Next(5, 11), mod.TileType("CarbonTile"), true, 0f, 0f, false, true);
             }
         }
 

@@ -13,17 +13,19 @@ namespace PrimordialSands.Dusts
             dust.velocity.Y *= 0.5f;
             dust.noGravity = true;
             dust.noLight = true;
-            dust.scale *= 0.3f;
+            dust.scale *= 0.37f;
             dust.frame = new Rectangle((Main.rand.Next(0, 1) == 0) ? 0 : 250, 0, 250, 115);
             dust.alpha = 210;
+            dust.fadeIn = 10f;
         }
 
         public override bool Update(Dust dust)
         {
-            if (Main.rand.Next(0, 10) == 1) dust.alpha++;
+            if (Main.rand.Next(0, 9) == 1) dust.alpha++;
+            if (Main.rand.Next(0, 15) == 1) dust.velocity.Y += 0.0008f;
             dust.position -= dust.velocity;
-            float light = 0.35f * dust.scale;
-            Lighting.AddLight(dust.position, light, light, light);
+            //float light = 0.35f * dust.scale;
+            //Lighting.AddLight(dust.position, light, light, light);
             if (dust.alpha > 255)
             {
                 dust.active = false;

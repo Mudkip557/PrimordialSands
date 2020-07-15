@@ -32,7 +32,7 @@ namespace PrimordialSands
     {
         public override void SetDefaults()
         {
-            item.crit = 4;
+            item.crit = 0;
             item.melee = false;
             item.ranged = false;
             item.magic = false;

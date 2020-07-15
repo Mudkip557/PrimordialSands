@@ -19,6 +19,8 @@ namespace PrimordialSands.Tiles.Swamp
             TileID.Sets.ChecksForMerge[Type] = true;
             Main.tileMerge[Type][mod.TileType("IndenSoilTile")] = true;
             Main.tileMerge[Type][mod.TileType("IndenGrassTile")] = true;
+            Main.tileBlockLight[Type] = true;
+            Main.tileLighted[Type] = true;
             dustType = 54;
             mineResist = 0.65f;
             minPick = 55;
